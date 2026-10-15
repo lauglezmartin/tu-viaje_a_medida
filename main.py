@@ -1,6 +1,4 @@
-from data.producto import productos
 from flask import Flask, render_template, request, url_for, redirect, abort
-from form import LoginForm
 
 #NOTA PARA SELF, SI CARGA UNA NUEVA PAGINA O COSA CON F12, ES LADO SERVIDOR
 #SI NO CARGA NADA NUEVO NI CAMBIA DE PAGINA ES LADO DE CLIENTE
