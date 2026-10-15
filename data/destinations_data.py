@@ -1,5 +1,42 @@
 destinations = [
-    id
-
-
+    {
+        id: 1,
+        "name": "Kioto",
+        "country": "Japón",
+        "environment": "ciudad",
+        "high_season": "primavera",
+        "visa": False,
+        "advise": "La moneda local es el yen y recomendamos llevar siempre efectivo para el acceso a los templos tradicionales.",
+        "imag": None,
+    },
+    {
+        id: 2,
+        "name": "Islas Lofoten",
+        "country": "Noruega",
+        "environment": "montaña",
+        "high_season": "invierno",
+        "visa": False,
+        "advise": "Es imprescindible viajar con ropa térmica extrema y calzado impermeable.",
+        "imag": None,
+    },    
+    {
+        id: 3,
+        "name": "Zanzíbar",
+        "country": "Tanzania",
+        "environment": "playa",
+        "high_season": "verano",
+        "visa": True,
+        "advise": None,
+        "imag": None,
+    },
+    {
+        id: 4,
+        "name": "Playa del Carmen",
+        "country": "México",
+        "environment": "playa",
+        "high_season": "verano",
+        "visa": False,
+        "advise": "La moneda es el peso mexicano, aunque aceptan dólares en casi todas las zonas turísticas.",
+        "imag": None,
+    }
 ]
