@@ -40,5 +40,25 @@ class ComparadorForm(FlaskForm):
 
 
 
+class AsistenteForm(FlaskForm):
+    class Meta:
+        csrf = False
+
+
+    entorno = SelectField("Entorno", choices=ENTORNOS)
+    sin_visado = BooleanField("Solo destinos sin visado")
+    tipo = SelectField("Tipo de alojamiento", choices=TIPOS)
+    precio_max = IntegerField(
+        "Gasto máximo por noche (€)",
+        validators=[
+            DataRequired(message="Indica un gasto máximo"),
+            NumberRange(min=1, max=10000, message="El precio debe estar entre 1 y 10000"),
+        ],
+    )
+    
+    desayuno = BooleanField("Desayuno incluido")
+    submit = SubmitField("Buscar mi viaje")
+
+
 
 
