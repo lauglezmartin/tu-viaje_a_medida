@@ -1,5 +1,5 @@
-from data.data_destinos import filtrar_destinos
-from data.data_alojamientos import filtrar_alojamientos
+from data.destinations_data import filtrar_destinos
+from data.accomodations_data import filtrar_alojamientos
 
 def viaje_a_medida(entorno, sin_visado, tipo, precio_max, desayuno):
     combinaciones = []
