@@ -40,3 +40,33 @@ destinations = [
         "imag": None,
     }
 ]
+
+
+
+# devuelve la lista completa
+def obtain_destinations():
+    return destinations
+
+
+# recorre la lista y devuelve el destino cuyo id coincide
+# si no lo encuentra devuelve None, y el controlador decide si lanza el 404
+def search_by_id(id):
+    for destination in destinations:
+        if destination["id"] == id:
+            return destination
+    return None
+
+
+# entorno vacio significa cualquiera, wo_visado en False significa que no se filtra por visado
+# usamos continue para saltar al siguiente destino cuando no cumple una condicion
+# solo los que pasan todas las condiciones llegan al append que los añade a result
+#y se devuelve el array/ los destinos filtrados
+def filter_destinations(environment="", wo_visado=False):
+    result = []
+    for destination in destinations:
+        if environment != "" and destination["environment"] != environment:
+            continue
+        if wo_visado and destination["visado"]:
+            continue
+        result.append(destination)
+    return result
