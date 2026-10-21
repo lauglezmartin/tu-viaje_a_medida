@@ -1,13 +1,17 @@
 from data.destinations_data import filter_destinations
-from data.accomodations_data import filtrar_alojamientos
+from data.accomodations_data import filter_accomodations
 
-def viaje_a_medida(entorno, sin_visado, tipo, precio_max, desayuno):
-    combinaciones = []
-    for destino in filter_destinations(entorno, sin_visado):
-        alojamientos_validos = filtrar_alojamientos(
-            precio_max, tipo, desayuno, False, destino["slug"]
+
+# primero filtramos los destinos por environment y visa
+# despues, por cada destino que sirve, buscamos sus alojamientos que cumplan el resto
+# cada combinacion valida se guarda como un diccionario con destination y accomodation
+# si un destino no tiene alojamientos validos (Zanzibar) simplemente no aporta combinaciones
+def custom_trip(environment, wo_visa, accomodation_type, max_price, breakfast):
+    combinations = []
+    for destination in filter_destinations(environment, wo_visa):
+        valid_accomodations = filter_accomodations(
+            max_price, accomodation_type, breakfast, False, destination["id"]
         )
-        for alojamiento in alojamientos_validos:
-            combinaciones.append({"destino": destino, "alojamiento": alojamiento})
-    return combinaciones
-
+        for accomodation in valid_accomodations:
+            combinations.append({"destination": destination, "accomodation": accomodation})
+    return combinations

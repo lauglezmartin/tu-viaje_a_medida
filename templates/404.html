@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}No encontrado{% endblock %}
+
+{% block content %}
+<h2>Contenido no disponible</h2>
+<img src="{{ url_for('static', filename='img/imagen.png') }}" alt="Tu Viaje a Medida">
+<p>Lo sentimos, el contenido que buscas no está disponible en nuestro catálogo.</p>
+<a href="{{ url_for('home') }}">Volver al inicio</a>
+{% endblock %}

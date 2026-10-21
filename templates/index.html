@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>HI</h1>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<h2>Bienvenido a Tu Viaje a Medida</h2>
+<p>Somos una agencia de viajes especializada en experiencias personalizadas. Explora nuestro catálogo o deja que nuestros buscadores encuentren la opción que mejor se adapta a ti.</p>
+
+<h3>Nuestra oferta actual</h3>
+<ul>
+    <li>Destinos: <strong>{{ total_destinations }}</strong></li>
+    <li>Alojamientos: <strong>{{ total_accomodations }}</strong></li>
+    <li>Actividades: <strong>{{ total_activities }}</strong></li>
+</ul>
+{% endblock %}
