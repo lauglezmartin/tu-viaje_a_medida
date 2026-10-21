@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}{{ activity.name }}{% endblock %}
+
+{% block content %}
+<h2>{{ activity.name }}</h2>
+
+<p>{{ activity.description }}</p>
+
+<ul>
+    <li>Duración aproximada: {{ activity.duration }} horas</li>
+    <li>Precio por persona: {{ activity.price }} €</li>
+    {% if activity.difficulty %}
+    <li>Dificultad: {{ activity.difficulty|capitalize }}</li>
+    {% endif %}
+    {% if activity.min_age %}
+    <li>Edad mínima: {{ activity.min_age }} años</li>
+    {% endif %}
+    {% if activity.includes %}
+    <li>Incluye: {{ activity.includes }}</li>
+    {% endif %}
+</ul>
+
+<a href="{{ url_for('destination_detail', destination_id=destination.id) }}">Ver guía completa de {{ destination.name }}</a>
+{% endblock %}
