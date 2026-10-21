@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Comparador de alojamientos{% endblock %}
+
+{% block content %}
+<h2>Comparador de alojamientos</h2>
+
+<form method="post" action="{{ url_for('comparator') }}">
+    <p>
+        {{ form.max_price.label }} {{ form.max_price() }}
+        {% for error in form.max_price.errors %}
+        <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </p>
+    <p>{{ form.accomodation_type.label }} {{ form.accomodation_type() }}</p>
+    <p>{{ form.breakfast() }} {{ form.breakfast.label }}</p>
+    <p>{{ form.pets() }} {{ form.pets.label }}</p>
+    <p>{{ form.submit() }}</p>
+</form>
+
+{% if results is not none %}
+<h3>Resultados</h3>
+<ul>
+    {% for accomodation in results %}
+    <li>
+        <a href="{{ url_for('accomodation_detail', accomodation_id=accomodation.id) }}">{{ accomodation.name }}</a>
+        ({{ accomodation.type }}) - {{ accomodation.price }} € por noche
+    </li>
+    {% else %}
+    <li>No hay alojamientos que cumplan esos requisitos.</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

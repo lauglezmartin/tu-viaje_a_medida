@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}{{ destination.name }}{% endblock %}
+
+{% block content %}
+<h2>{{ destination.name }}</h2>
+
+{% if destination.imag %}
+<img src="{{ url_for('static', filename='img/' ~ destination.imag) }}" alt="{{ destination.name }}">
+{% endif %}
+
+<ul>
+    <li>País: {{ destination.country }}</li>
+    <li>Entorno: {{ destination.environment|capitalize }}</li>
+    <li>Mejor época para visitarlo: {{ destination.high_season }}</li>
+    <li>Visado: {% if destination.visa %}Requiere visado{% else %}No requiere visado{% endif %}</li>
+    {% if destination.advise %}
+    <li>Consejo para el viajero: {{ destination.advise }}</li>
+    {% endif %}
+</ul>
+
+<h3>Alojamientos disponibles</h3>
+<ul>
+    {% for accomodation in accomodations_list %}
+    <li>
+        <a href="{{ url_for('accomodation_detail', accomodation_id=accomodation.id) }}">{{ accomodation.name }}</a>
+    </li>
+    {% else %}
+    <li>Por ahora no tenemos alojamientos contratados en este destino.</li>
+    {% endfor %}
+</ul>
+
+<h3>Actividades disponibles</h3>
+<ul>
+    {% for activity in activities_list %}
+    <li>
+        <a href="{{ url_for('activity_detail', activity_id=activity.id) }}">{{ activity.name }}</a>
+    </li>
+    {% else %}
+    <li>Por ahora no tenemos actividades disponibles en este destino.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

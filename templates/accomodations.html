@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Alojamientos{% endblock %}
+
+{% block content %}
+<h2>Listado de alojamientos</h2>
+<ul>
+    {% for accomodation in accomodations_list %}
+    <li>
+        <a href="{{ url_for('accomodation_detail', accomodation_id=accomodation.id) }}">{{ accomodation.name }}</a>
+        ({{ accomodation.type }})
+    </li>
+    {% else %}
+    <li>Todavía no tenemos alojamientos registrados.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

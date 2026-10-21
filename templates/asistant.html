@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Viaje a medida{% endblock %}
+
+{% block content %}
+<h2>Asistente de viaje a medida</h2>
+
+<form method="post" action="{{ url_for('asistant') }}">
+    <h3>Tu lugar de vacaciones</h3>
+    <p>{{ form.environment.label }} {{ form.environment() }}</p>
+    <p>{{ form.wo_visa() }} {{ form.wo_visa.label }}</p>
+
+    <h3>Tu estancia</h3>
+    <p>{{ form.accomodation_type.label }} {{ form.accomodation_type() }}</p>
+    <p>
+        {{ form.max_price.label }} {{ form.max_price() }}
+        {% for error in form.max_price.errors %}
+        <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </p>
+    <p>{{ form.breakfast() }} {{ form.breakfast.label }}</p>
+    <p>{{ form.submit() }}</p>
+</form>
+
+{% if results is not none %}
+<h3>Combinaciones encontradas</h3>
+<ul>
+    {% for combination in results %}
+    <li>
+        <a href="{{ url_for('destination_detail', destination_id=combination.destination.id) }}">{{ combination.destination.name }}</a>
+        +
+        <a href="{{ url_for('accomodation_detail', accomodation_id=combination.accomodation.id) }}">{{ combination.accomodation.name }}</a>
+        ({{ combination.accomodation.price }} € por noche)
+    </li>
+    {% else %}
+    <li>No hay ninguna combinación que cumpla todos tus requisitos.</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Explorador de destinos{% endblock %}
+
+{% block content %}
+<h2>Explorador de destinos</h2>
+
+<form method="post" action="{{ url_for('search') }}">
+    <p>{{ form.environment.label }} {{ form.environment() }}</p>
+    <p>{{ form.wo_visa() }} {{ form.wo_visa.label }}</p>
+    <p>{{ form.submit() }}</p>
+</form>
+
+{% if results is not none %}
+<h3>Resultados</h3>
+<ul>
+    {% for destination in results %}
+    <li>
+        <a href="{{ url_for('destination_detail', destination_id=destination.id) }}">{{ destination.name }}</a>
+        ({{ destination.country }})
+    </li>
+    {% else %}
+    <li>No hay destinos que cumplan esos requisitos.</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
