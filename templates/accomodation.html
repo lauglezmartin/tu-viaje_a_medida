@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}{{ accomodation.name }}{% endblock %}
+
+{% block content %}
+<h2>{{ accomodation.name }}</h2>
+
+<ul>
+    <li>Modalidad: {{ accomodation.type|capitalize }}</li>
+    {% if accomodation.stars %}
+    <li>Categoría: {{ accomodation.stars }} estrellas</li>
+    {% endif %}
+    <li>Precio por noche: {{ accomodation.price }} €</li>
+    <li>Desayuno: {% if accomodation.breakfast %}Incluido{% else %}No incluido{% endif %}</li>
+    <li>Mascotas: {% if accomodation.pets %}Se admiten{% else %}No se admiten{% endif %}</li>
+    {% if accomodation.extra %}
+    <li>Extra: {{ accomodation.extra }}</li>
+    {% endif %}
+</ul>
+
+<a href="{{ url_for('destination_detail', destination_id=destination.id) }}">Ver guía completa de {{ destination.name }}</a>
+{% endblock %}
