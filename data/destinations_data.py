@@ -1,6 +1,6 @@
 destinations = [
     {
-        id: 1,
+        "id": 1,
         "name": "Kioto",
         "country": "Japón",
         "environment": "ciudad",
@@ -10,7 +10,7 @@ destinations = [
         "imag": None,
     },
     {
-        id: 2,
+        "id": 2,
         "name": "Islas Lofoten",
         "country": "Noruega",
         "environment": "montaña",
@@ -18,9 +18,9 @@ destinations = [
         "visa": False,
         "advise": "Es imprescindible viajar con ropa térmica extrema y calzado impermeable.",
         "imag": None,
-    },    
+    },
     {
-        id: 3,
+        "id": 3,
         "name": "Zanzíbar",
         "country": "Tanzania",
         "environment": "playa",
@@ -30,7 +30,7 @@ destinations = [
         "imag": None,
     },
     {
-        id: 4,
+        "id": 4,
         "name": "Playa del Carmen",
         "country": "México",
         "environment": "playa",
@@ -38,9 +38,8 @@ destinations = [
         "visa": False,
         "advise": "La moneda es el peso mexicano, aunque aceptan dólares en casi todas las zonas turísticas.",
         "imag": None,
-    }
+    },
 ]
-
 
 
 # devuelve la lista completa
@@ -50,23 +49,22 @@ def obtain_destinations():
 
 # recorre la lista y devuelve el destino cuyo id coincide
 # si no lo encuentra devuelve None, y el controlador decide si lanza el 404
-def search_by_id(id):
+def search_destination_by_id(destination_id):
     for destination in destinations:
-        if destination["id"] == id:
+        if destination["id"] == destination_id:
             return destination
     return None
 
 
-# entorno vacio significa cualquiera, wo_visado en False significa que no se filtra por visado
+# environment vacio significa cualquiera, wo_visa en False significa que no se filtra por visado
 # usamos continue para saltar al siguiente destino cuando no cumple una condicion
 # solo los que pasan todas las condiciones llegan al append que los añade a result
-#y se devuelve el array/ los destinos filtrados
-def filter_destinations(environment="", wo_visado=False):
+def filter_destinations(environment="", wo_visa=False):
     result = []
     for destination in destinations:
         if environment != "" and destination["environment"] != environment:
             continue
-        if wo_visado and destination["visado"]:
+        if wo_visa and destination["visa"]:
             continue
         result.append(destination)
     return result
