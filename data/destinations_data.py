@@ -77,7 +77,7 @@ destinations = [
         "high_season": "verano",
         "visa": True,
         "advise": "La moneda es la rupia indonesia y conviene llevar repelente de mosquitos.",
-        "imag": "bali.jpg",
+        "imag": None,
     },
         {
         "id": 9,
