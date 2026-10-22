@@ -1,8 +1,11 @@
 /* colores que se repiten, así los cambias en un solo sitio */
 :root {
-    --azul: #0284c7;
-    --azul-oscuro: #0369a1;
-    --gris: #64748b;
+    --blue: #0284c7;
+    --dark-blue: #0369a1;
+    --grey: #64748b;
+    --text: #1e293b;
+    --border: #e2e8f0;
+    --background: #f8fafc;
 }
 
 * {
@@ -14,8 +17,8 @@
 /* body en columna con altura minima de la pantalla, para que el footer quede abajo en paginas cortas */
 body {
     font-family: Arial, Helvetica, sans-serif;
-    color: #1e293b;
-    background-color: #f8fafc;
+    color: var(--text);
+    background-color: var(--background);
     line-height: 1.6;
     display: flex;
     flex-direction: column;
@@ -25,11 +28,11 @@ body {
 /* cabecera y menu */
 header {
     background-color: white;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--border);
 }
 
 header h1 {
-    color: var(--azul);
+    color: var(--blue);
     text-align: center;
     font-size: 1.6em;
     padding: 15px 0 5px 0;
@@ -46,12 +49,16 @@ nav ul {
     background-color: #f1f5f9;
 }
 
+nav li {
+    margin: 0;
+}
+
 nav a {
-    color: #1e293b;
+    color: var(--text);
 }
 
 nav a:hover {
-    color: var(--azul);
+    color: var(--blue);
 }
 
 /* contenido principal, flex: 1 lo estira para empujar el footer hacia abajo */
@@ -68,11 +75,11 @@ main {
 
 /* textos */
 h2 {
-    color: var(--azul-oscuro);
+    color: var(--dark-blue);
     font-size: 1.8em;
     margin-bottom: 15px;
     padding-bottom: 8px;
-    border-bottom: 2px solid #e2e8f0;
+    border-bottom: 2px solid var(--border);
 }
 
 h3 {
@@ -81,7 +88,7 @@ h3 {
 }
 
 p {
-    color: var(--gris);
+    color: var(--grey);
     margin-bottom: 15px;
 }
 
@@ -91,25 +98,25 @@ ul {
 }
 
 li {
-    color: var(--gris);
+    color: var(--grey);
     margin-bottom: 8px;
 }
 
 /* enlaces */
 a {
-    color: var(--azul);
+    color: var(--blue);
     text-decoration: none;
 }
 
 a:hover {
-    color: var(--azul-oscuro);
+    color: var(--dark-blue);
     text-decoration: underline;
 }
 
 /* formularios de los buscadores */
 form {
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background-color: var(--background);
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 30px;
@@ -121,7 +128,7 @@ form p {
 
 label {
     font-weight: bold;
-    color: #1e293b;
+    color: var(--text);
 }
 
 input[type="number"],
@@ -138,7 +145,7 @@ input[type="checkbox"] {
 }
 
 input[type="submit"] {
-    background-color: var(--azul);
+    background-color: var(--blue);
     color: white;
     border: none;
     border-radius: 4px;
@@ -148,7 +155,14 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: var(--azul-oscuro);
+    background-color: var(--dark-blue);
+}
+
+/* mensajes de error de los formularios */
+.error {
+    color: #dc2626;
+    font-size: 0.9em;
+    margin-left: 8px;
 }
 
 /* imagenes de las fichas, max-width evita que se salgan de la caja */
@@ -164,6 +178,6 @@ footer {
     text-align: center;
     padding: 20px;
     background-color: white;
-    border-top: 1px solid #e2e8f0;
-    color: var(--gris);
+    border-top: 1px solid var(--border);
+    color: var(--grey);
 }
