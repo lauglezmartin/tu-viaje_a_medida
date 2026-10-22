@@ -47,7 +47,7 @@ destinations = [
         "high_season": "verano",
         "visa": False,
         "advise": None,
-        "imag": None,
+        "imag": "santorini.jpg",
     },
     {
         "id": 6,
@@ -57,7 +57,7 @@ destinations = [
         "high_season": "invierno",
         "visa": False,
         "advise": "La ciudad está a más de 3.000 metros de altitud, conviene pasar un par de días aclimatándose antes de hacer excursiones.",
-        "imag": None,
+        "imag": "cusco.jpg",
     },
     {
         "id": 7,
@@ -67,7 +67,7 @@ destinations = [
         "high_season": "primavera",
         "visa": False,
         "advise": "La moneda es el dírham marroquí y en los zocos es habitual regatear el precio.",
-        "imag": None,
+        "imag": "marrakech.jpg",
     },
     {
         "id": 8,
@@ -77,7 +77,7 @@ destinations = [
         "high_season": "verano",
         "visa": True,
         "advise": "La moneda es la rupia indonesia y conviene llevar repelente de mosquitos.",
-        "imag": None,
+        "imag": "bali.jpg",
     },
         {
         "id": 9,
@@ -87,7 +87,7 @@ destinations = [
         "high_season": "verano",
         "visa": False,
         "advise": "El tiempo cambia mucho entre la costa y el Teide, conviene llevar una chaqueta si se sube a la montaña.",
-        "imag": None,
+        "imag": "tenerife.jpg",
     },
 ]
 
