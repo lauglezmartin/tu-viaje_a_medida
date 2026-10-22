@@ -1,17 +1,8 @@
-/* ==========================================
-   1. Variables y Configuración Global
-   ================================---------- */
+/* colores que se repiten, así los cambias en un solo sitio */
 :root {
-    --primary-color: #0284c7;      /* Azul corporativo de viajes */
-    --primary-dark: #0369a1;       /* Tono más oscuro para hovers */
-    --accent-color: #f59e0b;       /* Acento cálido (tipo atardecer) */
-    --text-color: #1e293b;         /* Texto principal oscuro */
-    --text-light: #64748b;         /* Texto secundario / gris */
-    --bg-color: #f8fafc;           /* Fondo general de la página */
-    --white: #ffffff;              /* Blanco puro */
-    --border-color: #e2e8f0;       /* Bordes sutiles */
-    --radius: 8px;                 /* Radio de bordes redondeados */
-    --transition: all 0.3s ease;   /* Transición suave estándar */
+    --azul: #0284c7;
+    --azul-oscuro: #0369a1;
+    --gris: #64748b;
 }
 
 * {
@@ -20,34 +11,28 @@
     padding: 0;
 }
 
+/* body en columna con altura minima de la pantalla, para que el footer quede abajo en paginas cortas */
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    color: var(--text-color);
-    background-color: var(--bg-color);
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1e293b;
+    background-color: #f8fafc;
     line-height: 1.6;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-/* ==========================================
-   2. Cabecera y Navegación
-   ================================---------- */
+/* cabecera y menu */
 header {
-    background-color: var(--white);
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    background-color: white;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 header h1 {
-    font-size: 1.5rem;
-    color: var(--primary-color);
+    color: var(--azul);
     text-align: center;
-    padding: 1rem 0 0.5rem 0;
-    font-weight: 700;
+    font-size: 1.6em;
+    padding: 15px 0 5px 0;
 }
 
 nav ul {
@@ -55,190 +40,130 @@ nav ul {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 0.5rem 1.5rem;
-    padding: 0.75rem 1rem;
+    gap: 10px 25px;
+    margin: 0;
+    padding: 12px;
     background-color: #f1f5f9;
-    border-top: 1px solid var(--border-color);
 }
 
 nav a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: var(--transition);
-    padding: 0.25rem 0;
+    color: #1e293b;
 }
 
 nav a:hover {
-    color: var(--primary-color);
+    color: var(--azul);
 }
 
-/* ==========================================
-   3. Contenido Principal (Main)
-   ================================---------- */
+/* contenido principal, flex: 1 lo estira para empujar el footer hacia abajo */
 main {
-    flex: 1; /* Empuja el footer hacia abajo si la página es corta */
-    max-width: 900px;
+    flex: 1;
     width: 100%;
-    margin: 2rem auto;
-    padding: 0 1.5rem;
-    background-color: var(--white);
-    border-radius: var(--radius);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    padding-bottom: 2.5rem;
-    padding-top: 2rem;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 30px 25px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* textos */
 h2 {
-    color: var(--primary-dark);
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--border-color);
+    color: var(--azul-oscuro);
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
 }
 
 h3 {
-    color: var(--text-color);
-    font-size: 1.3rem;
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.3em;
+    margin: 25px 0 10px 0;
 }
 
 p {
-    margin-bottom: 1rem;
-    color: var(--text-light);
+    color: var(--gris);
+    margin-bottom: 15px;
 }
 
-/* ==========================================
-   4. Enlaces y Listados
-   ================================---------- */
 ul {
-    list-style-type: disc;
-    margin-left: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-left: 25px;
+    margin-bottom: 20px;
 }
 
 li {
-    margin-bottom: 0.5rem;
-    color: var(--text-light);
+    color: var(--gris);
+    margin-bottom: 8px;
 }
 
+/* enlaces */
 a {
-    color: var(--primary-color);
+    color: var(--azul);
     text-decoration: none;
-    transition: var(--transition);
 }
 
 a:hover {
+    color: var(--azul-oscuro);
     text-decoration: underline;
-    color: var(--primary-dark);
 }
 
-/* ==========================================
-   5. Formularios (Buscadores y Asistente)
-   ================================---------- */
+/* formularios de los buscadores */
 form {
     background-color: #f8fafc;
-    border: 1px solid var(--border-color);
-    padding: 1.5rem;
-    border-radius: var(--radius);
-    margin-bottom: 2rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
 }
 
 form p {
-    margin-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-}
-
-/* Ajuste específico para casillas de verificación (Checkboxes) */
-form p:has(input[type="checkbox"]) {
-    flex-direction: row;
-    align-items: center;
-    gap: 0.5rem;
+    margin-bottom: 15px;
 }
 
 label {
-    font-weight: 600;
-    color: var(--text-color);
-    font-size: 0.9rem;
+    font-weight: bold;
+    color: #1e293b;
 }
 
-input[type="text"],
-input[type="integer"],
 input[type="number"],
 select {
-    padding: 0.6rem;
-    border: 1px solid var(--border-color);
+    padding: 8px;
+    border: 1px solid #cbd5e1;
     border-radius: 4px;
-    font-size: 1rem;
-    background-color: var(--white);
-    color: var(--text-color);
-    width: 100%;
-    max-width: 400px;
-    transition: var(--transition);
-}
-
-input[type="text"]:focus,
-input[type="integer"]:focus,
-input[type="number"]:focus,
-select:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    font-size: 1em;
+    margin-left: 8px;
 }
 
 input[type="checkbox"] {
-    width: 1.1rem;
-    height: 1.1rem;
-    accent-color: var(--primary-color);
+    margin-right: 6px;
 }
 
 input[type="submit"] {
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: var(--azul);
+    color: white;
     border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 600;
     border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 1em;
     cursor: pointer;
-    transition: var(--transition);
-    margin-top: 0.5rem;
 }
 
 input[type="submit"]:hover {
-    background-color: var(--primary-dark);
+    background-color: var(--azul-oscuro);
 }
 
-/* Mensajes de error en formularios */
-span[style*="color: red"] {
-    font-size: 0.85rem;
-    margin-top: 0.2rem;
-}
-
-/* ==========================================
-   6. Imágenes y Fichas de Detalle
-   ================================---------- */
+/* imagenes de las fichas, max-width evita que se salgan de la caja */
 img {
     max-width: 100%;
     height: auto;
-    border-radius: var(--radius);
-    margin-bottom: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
-/* ==========================================
-   7. Pie de Página (Footer)
-   ================================---------- */
+/* pie de pagina */
 footer {
     text-align: center;
-    padding: 1.5rem;
-    background-color: var(--white);
-    border-top: 1px solid var(--border-color);
-    color: var(--text-light);
-    font-size: 0.9rem;
-    margin-top: auto; /* Mantiene el footer al fondo de forma limpia sin usar fixed */
+    padding: 20px;
+    background-color: white;
+    border-top: 1px solid #e2e8f0;
+    color: var(--gris);
 }

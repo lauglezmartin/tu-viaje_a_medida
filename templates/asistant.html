@@ -5,7 +5,7 @@
 {% block content %}
 <h2>Asistente de viaje a medida</h2>
 
-<form method="post" action="{{ url_for('asistant') }}">
+<form method="post" action="{{ url_for('asistant') }}" novalidate>
     <h3>Tu lugar de vacaciones</h3>
     <p>{{ form.environment.label }} {{ form.environment() }}</p>
     <p>{{ form.wo_visa() }} {{ form.wo_visa.label }}</p>
@@ -15,7 +15,7 @@
     <p>
         {{ form.max_price.label }} {{ form.max_price() }}
         {% for error in form.max_price.errors %}
-        <span style="color: red;">{{ error }}</span>
+        <span class="error">{{ error }}</span>
         {% endfor %}
     </p>
     <p>{{ form.breakfast() }} {{ form.breakfast.label }}</p>

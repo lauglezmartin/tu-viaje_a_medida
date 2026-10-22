@@ -5,11 +5,11 @@
 {% block content %}
 <h2>Comparador de alojamientos</h2>
 
-<form method="post" action="{{ url_for('comparator') }}">
+<form method="post" action="{{ url_for('comparator') }}" novalidate>
     <p>
         {{ form.max_price.label }} {{ form.max_price() }}
         {% for error in form.max_price.errors %}
-        <span style="color: red;">{{ error }}</span>
+        <span class="error">{{ error }}</span>
         {% endfor %}
     </p>
     <p>{{ form.accomodation_type.label }} {{ form.accomodation_type() }}</p>

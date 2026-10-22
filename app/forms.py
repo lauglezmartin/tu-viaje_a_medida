@@ -25,7 +25,7 @@ class ComparatorForm(FlaskForm):
     max_price = IntegerField(
         "Presupuesto máximo por noche (€)",
         validators=[
-            DataRequired(message="Indica un presupuesto máximo"),
+            DataRequired(message="Indica un presupuesto máximo mayor que 0"),
             NumberRange(min=1, max=10000, message="El precio debe estar entre 1 y 10000"),
         ],
     )
@@ -45,13 +45,9 @@ class AsistantForm(FlaskForm):
     max_price = IntegerField(
         "Gasto máximo por noche (€)",
         validators=[
-            DataRequired(message="Indica un gasto máximo"),
+            DataRequired(message="Indica un gasto máximo mayor que 0"),
             NumberRange(min=1, max=10000, message="El precio debe estar entre 1 y 10000"),
         ],
     )
     breakfast = BooleanField("Desayuno incluido")
     submit = SubmitField("Buscar mi viaje")
-
-
-
-
